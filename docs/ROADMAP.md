@@ -13,7 +13,7 @@
 | M1 | Project Scaffold & Tooling | Low | Low | M0 |✅|
 | M2 | Config Layer & Content Schemas | Medium | Medium | M1 |✅|
 | M3 | Core Engine (Managers) | High | **High** | M2 |✅|
-| M4 | World & Scenes (Night) | High | Medium | M3 |⚠️|
+| M4 | World & Scenes (Night) | High | Medium | M3 |✅|
 | M5 | Creature & Evolution | Medium | Medium | M3, M4 |❌|
 | M6 | Portfolio Overlays & Ending | Medium | Medium | M3, M5 |❌|
 | M7 | HUD & Global UI | Low | Low | M3, M6 |❌|
@@ -173,7 +173,7 @@
 
 **Complexity:** Medium | **Risk:** **High** — pause/resume interaction with ProgressManager
 
-#### M3.8 — Engine Integration
+#### M3.8 — Engine Integration ✅ (2026-07-05)
 - [ ] Provider tree wiring all managers
 - [ ] Debug panel: progress %, theme, active scene, evolution stage
 - [ ] Manual verification at each checkpoint threshold
