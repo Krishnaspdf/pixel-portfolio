@@ -1,0 +1,30 @@
+/*
+ * Night theme tokens — full palette per DESIGN.md.
+ * Mood: mystical, calm, haunted, magical.
+ * Applied when ThemeManager (M3) sets data-theme="night".
+ */
+[data-theme="night"] {
+  --color-bg: #0b0716;
+  --color-bg-deep: #060312;
+  --color-primary: #4c2a85; /* deep purple */
+  --color-secondary: #2b2a66; /* dark indigo */
+  --color-moon: #b9d4ff; /* moon blue */
+  --color-lavender: #b59ce8;
+  --color-accent: #9fe8ff; /* ghost cyan */
+  --color-glow: #ffffff; /* glowing white */
+  --color-fog: rgba(120, 90, 180, 0.25); /* fog purple */
+  --color-text: #f2ecff;
+  --color-text-muted: #9a8fc0;
+
+  --glass-bg: rgba(20, 12, 40, 0.65);
+
+  /* ---------- Atmosphere (complete Night mapping — M2) ---------- */
+  --moon-glow: rgba(185, 212, 255, 0.55);
+  --creature-glow: rgba(159, 232, 255, 0.4);
+  --particle-color: #9fe8ff; /* ghost wisps */
+  --particle-color-alt: #6ea8ff; /* blue embers */
+  --fog-opacity: 0.25;
+  --scene-transition-tint: rgba(76, 42, 133, 0.35);
+  --overlay-glow: 0 0 12px rgba(159, 232, 255, 0.35);
+  --hud-bg: rgba(11, 7, 22, 0.7);
+}

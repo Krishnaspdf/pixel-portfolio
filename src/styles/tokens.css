@@ -1,0 +1,55 @@
+/*
+ * Base design tokens — theme-independent.
+ * Theme palettes live in styles/themes/*.css and override color tokens
+ * via [data-theme] once ThemeManager (M3) applies the attribute.
+ */
+:root {
+  /* ---------- Typography (DESIGN.md) ---------- */
+  --font-display: "Press Start 2P", monospace; /* titles, HUD, scene names */
+  --font-body: "VT323", monospace; /* paragraphs, overlay text */
+
+  --font-size-xs: 0.625rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 2rem;
+
+  /* ---------- Spacing ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+
+  /* ---------- Z-layers ----------
+   * Mirrors the scene composition order in DESIGN.md:
+   * sky → clouds → moon → mountains → trees → ground →
+   * creature → foreground → particles → HUD → overlay
+   */
+  --z-sky: 0;
+  --z-clouds: 10;
+  --z-moon: 20;
+  --z-mountains: 30;
+  --z-trees: 40;
+  --z-ground: 50;
+  --z-creature: 60;
+  --z-foreground: 70;
+  --z-particles: 80;
+  --z-scroll-capture: 85; /* invisible scroll runway (ProgressManager M3.2) */
+  --z-hud: 90;
+  --z-overlay: 100;
+
+  /* ---------- Fallback palette ----------
+   * Night-leaning defaults so the app renders correctly before
+   * ThemeManager (M3) sets [data-theme]. Theme files override these.
+   */
+  --color-bg: #0b0716;
+  --color-text: #f2ecff;
+  --color-text-muted: #9a8fc0;
+  --color-accent: #9fe8ff;
+
+  /* ---------- Glassmorphism (DESIGN.md: blur 20–30px, 60–70% opacity) ---------- */
+  --glass-blur: 24px;
+  --glass-bg: rgba(20, 12, 40, 0.65);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.15);
+  --glass-radius: 12px;
+}

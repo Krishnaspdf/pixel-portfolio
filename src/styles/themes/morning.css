@@ -1,0 +1,26 @@
+/*
+ * Morning theme tokens — PLACEHOLDER (structurally complete, minimal palette).
+ * Full art and creature line are post-v1.0 scope; see ROADMAP.md M9.
+ * Mood: hope, adventure, fresh, warm.
+ */
+[data-theme="morning"] {
+  --color-bg: #bfe3ff; /* sky blue */
+  --color-primary: #8fd05e; /* grass green */
+  --color-secondary: #ffd94d; /* golden yellow */
+  --color-accent: #ffb347; /* sunlight orange */
+  --color-text: #23331f;
+  --color-text-muted: #5a6f52;
+
+  --glass-bg: rgba(255, 255, 255, 0.65);
+
+  /* ---------- Atmosphere — PLACEHOLDER values (full mapping in M9+) ---------- */
+  --moon-glow: rgba(255, 217, 77, 0.45); /* sun glow */
+  --creature-glow: rgba(255, 179, 71, 0.35);
+  --particle-color: #a8d97c; /* leaves */
+  --particle-color-alt: #ffe9b0; /* dust / sun rays */
+  --color-fog: rgba(255, 255, 255, 0.2); /* morning fog */
+  --fog-opacity: 0.2;
+  --scene-transition-tint: rgba(255, 217, 77, 0.25);
+  --overlay-glow: 0 0 12px rgba(255, 179, 71, 0.3);
+  --hud-bg: rgba(255, 255, 255, 0.55);
+}

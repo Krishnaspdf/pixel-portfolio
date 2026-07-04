@@ -1,0 +1,26 @@
+/*
+ * Evening theme tokens — PLACEHOLDER (structurally complete, minimal palette).
+ * Full art and creature line are post-v1.0 scope; see ROADMAP.md M9.
+ * Mood: relaxed, peaceful, golden hour.
+ */
+[data-theme="evening"] {
+  --color-bg: #2d1608; /* deep brown dusk */
+  --color-primary: #e8722a; /* orange */
+  --color-secondary: #b23a2e; /* crimson */
+  --color-accent: #ffd166; /* lantern yellow */
+  --color-text: #ffe9d6;
+  --color-text-muted: #c99b77;
+
+  --glass-bg: rgba(45, 22, 8, 0.65);
+
+  /* ---------- Atmosphere — PLACEHOLDER values (full mapping in M9+) ---------- */
+  --moon-glow: rgba(255, 209, 102, 0.5); /* lantern / sunset glow */
+  --creature-glow: rgba(232, 114, 42, 0.35);
+  --particle-color: #ffd166; /* fireflies */
+  --particle-color-alt: #e8722a; /* orange leaves */
+  --color-fog: rgba(45, 22, 8, 0.2); /* dusk haze */
+  --fog-opacity: 0.2;
+  --scene-transition-tint: rgba(178, 58, 46, 0.25);
+  --overlay-glow: 0 0 12px rgba(255, 209, 102, 0.3);
+  --hud-bg: rgba(45, 22, 8, 0.6);
+}

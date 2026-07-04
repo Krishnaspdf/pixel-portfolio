@@ -1,0 +1,199 @@
+/*
+ * Global stylesheet — reset, app shell, and token imports.
+ * Styling is plain CSS with CSS variables only (no Tailwind) per ARCHITECTURE.md.
+ */
+@import "./tokens.css";
+@import "./themes/night.css";
+@import "./themes/morning.css";
+@import "./themes/evening.css";
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * WHY overflow hidden: the document must NEVER scroll.
+ * Scroll input is captured by ProgressManager (M3) and converted to
+ * normalized progress. The page itself is a fixed game viewport.
+ */
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: none;
+}
+
+#root {
+  height: 100%;
+}
+
+/* Pixel art must scale crisply — never blur sprites (DESIGN.md). */
+img,
+canvas {
+  image-rendering: pixelated;
+}
+
+/* ---------- App shell ---------- */
+.game-viewport {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.game-viewport__placeholder {
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  text-align: center;
+  line-height: 2;
+}
+
+.game-viewport__placeholder-sub {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Progress scroll capture (M3.2) ---------- */
+
+/*
+ * WHY: the document never scrolls — this invisible fixed layer provides the
+ * scroll runway that ScrollTrigger converts into normalized progress.
+ * It sits below HUD and overlays so later UI stays interactive.
+ */
+.progress-scroller {
+  position: fixed;
+  inset: 0;
+  overflow-y: scroll;
+  z-index: var(--z-scroll-capture);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* legacy Edge */
+}
+
+.progress-scroller::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+/* Paused: scrolling is disabled entirely so input cannot accumulate. */
+.progress-scroller--paused {
+  overflow-y: hidden;
+}
+
+/* ---------- Dev debug panel (M3.2+) ---------- */
+.progress-debug {
+  position: fixed;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  z-index: var(--z-hud);
+  max-width: 44ch; /* fired-event list wraps instead of spanning the screen */
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  border-radius: var(--glass-radius);
+}
+
+.progress-debug button {
+  margin-top: var(--space-1);
+  margin-right: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--font-size-xs);
+  cursor: pointer;
+}
+
+/* ---------- Overlay lifecycle shell (M3.7) ---------- */
+.overlay-layer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: rgba(4, 3, 10, 0.25);
+}
+
+.overlay-panel {
+  width: min(90vw, 920px);
+  min-height: min(80vh, 620px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  color: var(--color-text);
+  text-align: center;
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  border-radius: var(--glass-radius);
+  backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  outline: none;
+}
+
+.overlay-panel:focus-visible,
+.overlay-panel__close:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: var(--space-1);
+}
+
+.overlay-panel__title {
+  max-width: 18ch;
+  font-family: var(--font-display);
+  font-size: clamp(var(--font-size-md), 4vw, var(--font-size-lg));
+  line-height: 1.8;
+  letter-spacing: 0;
+}
+
+.overlay-panel__divider {
+  width: min(280px, 60%);
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent),
+    transparent
+  );
+  opacity: 0.85;
+}
+
+.overlay-panel__close {
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--font-size-xs);
+  color: var(--color-bg);
+  background: var(--color-accent);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .overlay-layer {
+    padding: var(--space-3);
+  }
+
+  .overlay-panel {
+    width: 90vw;
+    min-height: 80vh;
+    padding: var(--space-4);
+  }
+}

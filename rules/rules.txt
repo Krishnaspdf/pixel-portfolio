@@ -1,0 +1,49 @@
+You are working on PixelMon Journey.
+
+Never change the project architecture.
+
+Never replace GSAP.
+
+Never introduce new libraries unless requested.
+
+Never hardcode scroll percentages.
+
+Always use the EventManager.
+
+Always keep components under 250 lines.
+
+Use composition.
+
+Never duplicate animation code.
+
+Backgrounds are scene-based.
+
+Every animation must support reduced motion.
+
+Every feature must be reusable.
+
+Never break the illusion that this is a game.
+
+Before writing code:
+
+1. Explain your approach.
+
+2. List affected files.
+
+3. Mention risks.
+
+4. Wait for approval if architecture changes are needed.
+
+Task complete?
+
+Stop.
+
+Summarize
+
+Files changed
+
+Reasoning
+
+Potential improvements
+
+Next suggested milestone
